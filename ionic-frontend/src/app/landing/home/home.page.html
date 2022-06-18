@@ -4,7 +4,7 @@
       <ion-title>
         تدريس
       </ion-title>
-      <ion-button>
+      <!-- <ion-button>
         <ion-icon slot="start" name="home"></ion-icon>
         الرئيسية
       </ion-button>
@@ -15,7 +15,7 @@
       <ion-button>
         <ion-icon slot="start" name="person-circle"></ion-icon>
         تواصل معنا
-      </ion-button>
+      </ion-button> -->
 
     </ion-buttons>
   </ion-toolbar>
@@ -28,7 +28,24 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="">
+        <ion-label>الدورات</ion-label>
+        <ion-icon name="library-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="home">
+        <ion-label>الرئيسية</ion-label>
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="">
+        <ion-label>المدونة</ion-label>
+        <ion-icon name="newspaper-outline"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 
-  </div>
+  <!-- <div id="container">
+
+  </div> -->
 </ion-content>
