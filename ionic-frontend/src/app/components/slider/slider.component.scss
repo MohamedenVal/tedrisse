@@ -1,0 +1,14 @@
+.slider-container {
+  height: 80vh;
+  background-color: #888;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide1,.slide2,.slide3,.slide4,.slide5 {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

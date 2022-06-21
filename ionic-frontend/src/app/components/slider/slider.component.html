@@ -1,0 +1,38 @@
+<swiper
+      [slidesPerView]="1"
+      (swiper)="onSwiper($event)"
+      (slideChange)="onSlideChange()"
+      [navigation]="true"
+      [pagination]="{ clickable: true }"
+      [scrollbar]="{ draggable: true }"
+      dir="rtl"
+    >
+      <ng-template swiperSlide>
+        <div class="slider-container slide1" style="background-image: url('assets/images/laptop2.jpg');">
+          <h1>تعلم معنا</h1>
+          <ion-button>دروس</ion-button>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="slider-container slide2" style="background-image: url('assets/images/coding.jpg');">
+          <h1>تعلم معنا</h1>
+          <p></p>
+          <ion-button>دروس</ion-button>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="slider-container slide3" style="background-image: url('assets/images/laptop.jpg');" >
+          Slide 3
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="slider-container slide4" style="background-image: url('assets/images/laptop.jpg');">
+          Slide 4
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="slider-container slide5" style="background-image: url('assets/images/laptop2.jpg');">
+          Slide 5
+        </div>
+      </ng-template>
+    </swiper>

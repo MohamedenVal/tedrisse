@@ -4,16 +4,16 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./landing/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
-    redirectTo: 'landing',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
     path: 'landing',
-    loadChildren: () => import('./landing/landing.module').then( m => m.LandingPageModule)
+    loadChildren: () => import('./home/landing/landing.module').then( m => m.LandingPageModule)
   },
   {
     path: 'auth',
@@ -21,11 +21,11 @@ const routes: Routes = [
   },
   {
     path: 'courses',
-    loadChildren: () => import('./courses/courses.module').then( m => m.CoursesPageModule)
+    loadChildren: () => import('./home/courses/courses.module').then( m => m.CoursesPageModule)
   },
   {
     path: 'blog',
-    loadChildren: () => import('./blog/blog.module').then( m => m.BlogPageModule)
+    loadChildren: () => import('./home/blog/blog.module').then( m => m.BlogPageModule)
   },
 ];
 
