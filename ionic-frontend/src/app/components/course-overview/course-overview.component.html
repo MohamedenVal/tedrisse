@@ -1,13 +1,19 @@
+<div class="rounded-img" style="background-image: url('{{ overviewCourse.image }}');">
+
+</div>
 <ion-card style="text-align: center;">
-  <img src="assets/images/laptop.jpg" />
+
   <ion-card-header >
-    <ion-card-subtitle>بدرمجة الويب</ion-card-subtitle>
-    <ion-card-title>لغة HTML </ion-card-title>
+    <ion-card-subtitle>
+      برمجة الويب
+    </ion-card-subtitle>
+    <ion-card-title>
+      {{ overviewCourse.title }}
+    </ion-card-title>
   </ion-card-header>
 
   <ion-card-content>
-    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
-    إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص كما يمكن استخدامه لتصاميم الجرافيكس.
+    {{ overviewCourse.description }}
   </ion-card-content>
 </ion-card>
 

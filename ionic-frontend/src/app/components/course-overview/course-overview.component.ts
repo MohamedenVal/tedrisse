@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Course } from 'src/app/models/course.model';
 
 @Component({
   selector: 'app-course-overview',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course-overview.component.scss'],
 })
 export class CourseOverviewComponent implements OnInit {
+
+  @Input() overviewCourse: Course;
 
   constructor() { }
 

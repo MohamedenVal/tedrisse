@@ -1,12 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Course } from '../models/course.model';
+import { CoursesService } from '../services/courses.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
-  constructor() {}
+  courses: Course[] = [];
 
+  constructor(private coursesService: CoursesService) {}
+
+  ngOnInit(): void {
+      this.courses = this.coursesService.getCourses();
+  }
 }
