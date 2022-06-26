@@ -5,8 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { SwiperModule } from 'swiper/angular';
-import { SliderComponent } from '../components/slider/slider.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { CourseOverviewComponent } from '../components/course-overview/course-overview.component';
 
 
@@ -16,12 +15,11 @@ import { CourseOverviewComponent } from '../components/course-overview/course-ov
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    SwiperModule,
+    SharedModule
   ],
   declarations: [
     HomePage,
-    SliderComponent,
-    CourseOverviewComponent
+    CourseOverviewComponent,
   ]
 })
 export class HomePageModule {}
