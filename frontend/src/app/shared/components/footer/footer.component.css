@@ -1,0 +1,53 @@
+.footer {
+  background-color: #ededed;
+  padding: 16px 0 ;
+}
+
+.links {
+  display: flex;
+  margin: 16px 0;
+  justify-content: center;
+  gap: 12px;
+}
+.links a {
+  font-size: 1.25rem;
+  color: #333;
+  text-decoration: none;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  padding: 4px 8px;
+  font-weight: 400;
+  transition: transform .3s ease-in;
+}
+.links a:hover {
+  font-size: 1.33rem;
+  color: #9352b8;
+  transform: scale(.9);
+}
+
+.spons {
+  text-align: center;
+  color: #222222;
+  font-size: 1.12rem;
+}
+
+.spons a {
+  color: #6b497e;
+}
+
+.spons a:hover {
+  color: #422c4f;
+}
+
+.icons {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.icon {
+  margin: 8px 16px ;
+  height: 32px;
+  width: 32px;
+}
+

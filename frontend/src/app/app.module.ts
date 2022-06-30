@@ -1,32 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavigationComponent } from './navigation/navigation.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
+import { SliderComponent } from './components/slider/slider.component';
+import { SharedModule } from './shared/shared.module';
+import { CourseOverviewComponent } from './components/course-overview/course-overview.component';
+import { PostOverviewComponent } from './components/post-overview/post-overview.component';
+import { CoursesComponent } from './components/courses/courses.component';
+import { PostsComponent } from './components/posts/posts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent
+    SliderComponent,
+    CourseOverviewComponent,
+    PostOverviewComponent,
+    CoursesComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

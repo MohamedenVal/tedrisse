@@ -1,0 +1,17 @@
+.btn {
+	/* background-color: rgb(71, 71, 221); */
+	background-color: var(--color-primary);
+  padding: 8px 16px;
+	border-radius: 5px;
+	color: white;
+	font-weight: 400;
+	/* width: 100%; */
+	/* height: 45px; */
+	font-size: 16px;
+	font-family: 'Roboto';
+	border: 0px;
+
+}
+.bnt:hover {
+  background-color: rgb(29, 29, 218);
+}

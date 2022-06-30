@@ -1,0 +1,38 @@
+nav {
+  height: 6vh;
+  /* background-color: #f3e0fe; */
+  box-shadow: var(--card-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  color: #444;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.icon {
+  height: 24px;
+  width: 24px;
+}
+
+.nav-links a {
+  font-size: 1.125rem;
+  text-decoration: none;
+  color: inherit;
+  margin: 16px;
+  padding: 8px;
+
+}
+
+.nav-links a span {
+  padding: 0 8px 0 0;
+}
+
+.nav-links a svg {
+  fill: #444;
+}

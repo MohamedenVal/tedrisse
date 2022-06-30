@@ -1,0 +1,62 @@
+.sliders {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.slider {
+  /* display: none; */
+  left: -100%;
+  width: 100vw;
+  height: 70vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  transition: all 0.3s ease-in;
+}
+
+.active {
+  /* display: block; */
+  transform: translateX(100%);
+}
+
+.highlights {
+  top: 20%;
+  right: 55%;
+  width: 30%;
+  color: #ffffff !important;
+  font-weight: 700;
+  position: absolute;
+}
+.highlights h2 {
+  font-size: 2rem;
+}
+.highlights p {
+  font-size: 1.25rem;
+}
+
+.arrows {
+  padding: 0 8px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: calc(50% - 32px)
+}
+
+.left ,.right {
+  /* font-size: 1rem; */
+  height: 64px;
+  width: 32px;
+  /* padding: 8px; */
+  cursor: pointer;
+  fill: #5874a5f0;
+}
+
+
+.left:hover, .right:hover {
+  fill: #3f6fc2f0;
+}
+
+

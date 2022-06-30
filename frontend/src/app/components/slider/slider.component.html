@@ -1,0 +1,22 @@
+<div class="sliders">
+  <div class="slider active" style="background-image: url({{slides[i].image}});">
+    <div class="highlights">
+      <h2>هذا النص هو مثال</h2>
+      <p>
+        هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
+      </p>
+
+      <td-button text="اقرا المزيد"></td-button>
+    </div>
+
+    <div class="arrows">
+
+      <svg class="right" (click)="changesSlide()">
+        <use href="./assets/icons.svg#icon-chevron-small-right"></use>
+      </svg>
+      <svg class="left" (click)="changesSlide(-1)">
+        <use href="./assets/icons.svg#icon-chevron-small-left"></use>
+      </svg>
+    </div>
+  </div>
+</div>
