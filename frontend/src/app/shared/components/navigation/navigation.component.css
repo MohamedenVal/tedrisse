@@ -1,6 +1,10 @@
 nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: #fff;
   height: 6vh;
-  /* background-color: #f3e0fe; */
   box-shadow: var(--card-shadow);
   display: flex;
   justify-content: space-between;

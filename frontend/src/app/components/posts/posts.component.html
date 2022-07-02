@@ -1,1 +1,3 @@
-<p>posts works!</p>
+<div *ngIf="items" class="posts">
+  <app-post-overview *ngFor="let item of items" [post]="item"></app-post-overview>
+</div>
