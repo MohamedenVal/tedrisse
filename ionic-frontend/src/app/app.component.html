@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-menu side="start" contentId="main" menuId="first">
+  <ion-menu side="start" contentId="main" menuId="main">
     <ion-header>
       <ion-toolbar color="primary">
         <ion-title>القائمة الرئيسية</ion-title>
@@ -24,5 +24,34 @@
 
     </ion-content>
   </ion-menu>
+
+  <ion-header [translucent]="true">
+    <!-- <app-header></app-header> -->
+    <ion-toolbar>
+      <ion-buttons>
+        <ion-title>
+          <ion-button routerLink="/">
+            تدريس
+          </ion-button>
+
+        </ion-title>
+         <ion-button class="toolbar-buttons" routerLink="/home">
+          <ion-icon slot="start" name="home"></ion-icon>
+          الرئيسية
+        </ion-button>
+        <ion-button class="toolbar-buttons" routerLink="/courses">
+          <ion-icon slot="start" name="book"></ion-icon>
+          الدورات
+        </ion-button>
+        <ion-button class="toolbar-buttons" routerLink="/blog">
+          <ion-icon slot="start" name="person-circle"></ion-icon>
+          تواصل معنا
+        </ion-button>
+
+        <ion-menu-button class="toolbar-menu" menu="main" ></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
   <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

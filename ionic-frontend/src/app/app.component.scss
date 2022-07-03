@@ -1,0 +1,13 @@
+.toolbar-buttons {
+  display: none;
+}
+
+@media(min-width: 800px) {
+  .toolbar-buttons {
+    display: block;
+  }
+
+  .toolbar-menu {
+    display: none;
+  }
+}

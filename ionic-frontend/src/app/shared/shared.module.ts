@@ -5,6 +5,7 @@ import { FooterComponent } from '../components/footer/footer.component';
 import { SliderComponent } from '../components/slider/slider.component';
 import { SwiperModule } from 'swiper/angular';
 import { IonicModule } from '@ionic/angular';
+import { HeaderComponent } from '../components/header/header.component';
 
 
 
@@ -13,6 +14,7 @@ import { IonicModule } from '@ionic/angular';
     ExcerptPipe,
     FooterComponent,
     SliderComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { IonicModule } from '@ionic/angular';
   exports: [
     ExcerptPipe,
     FooterComponent,
-    SliderComponent
+    SliderComponent,
+    HeaderComponent
   ]
 })
 export class SharedModule { }
