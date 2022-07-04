@@ -7,6 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
+  countries = [
+    {
+      value: 'Mauritania',
+      name: 'موريتانيا'
+    },
+    {
+      value: 'Algeria',
+      name: 'الجزائر'
+    },
+    {
+      value: 'Marroco',
+      name: 'المغرب'
+    },
+    {
+      value: 'Tunisia',
+      name: 'تونس'
+    },
+  ]
   constructor() { }
 
   ngOnInit(): void {

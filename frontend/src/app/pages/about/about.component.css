@@ -1,0 +1,94 @@
+.container {
+  height: 80vh;
+  direction: rtl;
+  display:grid;
+  place-content:center;
+  font-family:sans-serif;
+  color:#6b6b6b;
+}
+
+/* Style the inputs with type="text" */
+/* input[type=text], select, textarea{
+  width: 80%;
+  margin: 6px 10% 16px 10%;
+  padding: 12px;
+  border: 1px soloid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+} */
+
+/* Style the submit button  */
+/* input[type=submit] {
+  background-color: #04aa6d;
+  margin: 0 calc(50% - 20px);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+} */
+
+form{
+  width:90vw;
+  max-width:768px;
+  border:1px solid #ddd;
+  padding:3vw;
+  display:flex;
+  flex-direction:column;
+  border-radius:5px;
+}
+
+label{
+  margin-bottom:15px;
+  position:relative;
+  border-bottom:1px solid #ddd;
+}
+input, select, textarea{
+  width:100%;
+  padding:10px;
+  margin-top:20px;
+  border:none;
+  outline:none;
+}
+
+.select-label {
+  margin-top: 30px;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+textarea {
+  border: 1px solid #ddd;
+}
+
+input::placeholder, textarea::placeholder{
+  opacity:0;
+}
+span{
+  position:absolute;
+  top:0;
+  right:0;
+  transform:translateY(30px);
+  font-size:0.825em;
+  transition-duration:300ms;
+}
+button{
+  padding:15px 0px;
+  margin-top:20px;
+  background:purple;
+  color:#fff;
+  border:1px solid purple;
+  cursor:pointer;
+  border-radius:3px;
+}
+
+label:focus-within > span,
+input:not(:placeholder-shown) + span{
+    color:purple;
+    transform:translateY(0px);
+}
+
+textarea:not(:placeholder-shown) + span {
+  color:purple;
+  transform:translateY(0px);
+}

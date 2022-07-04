@@ -5,6 +5,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CardComponent } from './components/card/card.component';
 import { ButtonComponent } from './components/button/button.component';
 import { RouterModule } from '@angular/router';
+import { PostOverviewComponent } from '../components/post-overview/post-overview.component';
+import { PostsComponent } from '../components/posts/posts.component';
 
 
 
@@ -13,7 +15,9 @@ import { RouterModule } from '@angular/router';
     NavigationComponent,
     FooterComponent,
     CardComponent,
-    ButtonComponent
+    ButtonComponent,
+    PostOverviewComponent,
+    PostsComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +27,9 @@ import { RouterModule } from '@angular/router';
     ButtonComponent,
     CardComponent,
     FooterComponent,
-    NavigationComponent
+    NavigationComponent,
+    PostOverviewComponent,
+    PostsComponent
   ]
 })
 export class SharedModule { }

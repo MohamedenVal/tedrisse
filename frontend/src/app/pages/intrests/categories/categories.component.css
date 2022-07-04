@@ -1,0 +1,8 @@
+.categories {
+  text-align: center;
+  margin: 12px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-around;
+}

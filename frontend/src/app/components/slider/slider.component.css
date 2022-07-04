@@ -36,27 +36,25 @@
   font-size: 1.25rem;
 }
 
-.arrows {
-  padding: 0 8px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  top: calc(50% - 32px)
-}
+
 
 .left ,.right {
-  /* font-size: 1rem; */
+  position: absolute;
+  top: calc(50% - 32px);
   height: 64px;
   width: 32px;
-  /* padding: 8px; */
+  padding: 0 4px;
   cursor: pointer;
-  fill: #5874a5f0;
+  fill: #2369e2f0;
+}
+
+.left {
+  left: 0;
 }
 
 
 .left:hover, .right:hover {
-  fill: #3f6fc2f0;
+  fill: #8ab5ff;
 }
 
 

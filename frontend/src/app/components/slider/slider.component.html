@@ -6,17 +6,15 @@
         هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
       </p>
 
-      <td-button text="اقرا المزيد"></td-button>
+      <td-button text="اقرا المزيد" link="/intrests" ></td-button>
     </div>
 
-    <div class="arrows">
+    <svg class="right" (click)="changesSlide()">
+      <use href="./assets/icons.svg#icon-chevron-small-right"></use>
+    </svg>
+    <svg class="left" (click)="changesSlide(-1)">
+      <use href="./assets/icons.svg#icon-chevron-small-left"></use>
 
-      <svg class="right" (click)="changesSlide()">
-        <use href="./assets/icons.svg#icon-chevron-small-right"></use>
       </svg>
-      <svg class="left" (click)="changesSlide(-1)">
-        <use href="./assets/icons.svg#icon-chevron-small-left"></use>
-      </svg>
-    </div>
   </div>
 </div>

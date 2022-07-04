@@ -1,1 +1,27 @@
-<p>about works!</p>
+<div class="container">
+  <form>
+    <label for="fname">
+      <input type="text" id="fname" placeholder="الاسم ...">
+      <span>الاسم</span>
+    </label>
+
+    <label for="lname">
+      <input type="text" id="lname" placeholder="الاسم ...">
+      <span>لاسم العائلي</span>
+    </label>
+
+    <label class="select-label" for="country">
+      الدولة
+    </label>
+    <select name="country" id="country">
+      <option *ngFor="let country of countries" value="{{country.value}}">{{ country.name }}</option>
+    </select>
+
+    <label for="subject">
+      <span>الموضوع</span>
+      <textarea name="subject" id="subject" placeholder="اكتب رسالتك هنا ..." style="height: 200px;"></textarea>
+    </label>
+
+    <button type="submit"> Submit </button>
+  </form>
+</div>

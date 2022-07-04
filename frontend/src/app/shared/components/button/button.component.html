@@ -1,8 +1,5 @@
 <button
-  [type]="type"
-  (click)="onClick()"
-  [disabled]="disabled"
-  class="btn"
-  [style]="{'background-color': color }">
-  <span>{{ buttonText }}</span>
+  routerLink="{{link}}"
+  class="btn">
+  {{ buttonText }}
 </button>

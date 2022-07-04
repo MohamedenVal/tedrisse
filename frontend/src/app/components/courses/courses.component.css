@@ -10,7 +10,8 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  width: 400px;
+  width: 30%;
+  min-width: 300px;
 }
 
 .round {

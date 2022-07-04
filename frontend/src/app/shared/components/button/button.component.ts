@@ -18,6 +18,7 @@ export class ButtonComponent {
     return this.buttonText;
   }
 
+  @Input() link = '';
   @Input() color: string = '';
   @Input() type: string = 'button';
   @Input() disabled = false;
