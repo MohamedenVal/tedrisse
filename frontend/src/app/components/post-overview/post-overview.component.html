@@ -1,6 +1,6 @@
-<div class="post" [ngStyle]="{'flex-wrap': (post?.index % 2 === 0) ? 'wrap' : 'wrap-reverse'  }">
+<div class="post" [ngClass]="(post?.index % 2 === 0) ? 'left' : 'right' ">
   <div class="post-image">
-    <img src="assets/slider/coding.jpg" alt="" width="300">
+    <img src="assets/slider/coding.jpg" alt="">
   </div>
   <div class="post-text">
     <h3>هذا النص العربي هو مثال.</h3>
