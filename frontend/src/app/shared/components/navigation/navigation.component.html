@@ -1,54 +1,28 @@
-<!-- <nav>
-  <h3 routerLink="/">تدريس</h3>
-
-  <div class="nav-links">
-    <a [routerLink]="['/', 'home']" routerLinkActive="router-link-active" >
-      <svg class="icon">
-        <use href="assets/icons.svg#home"></use>
-      </svg>
-      <span>الرئيسية</span>
-    </a>
-    <a [routerLink]="['/', 'courses']" routerLinkActive="router-link-active" >
-      <svg class="icon">
-        <use href="assets/icons.svg#book"></use>
-      </svg>
-      <span>تعلم</span>
-    </a>
-    <a [routerLink]="['/', 'intrests']" routerLinkActive="router-link-active" >
-      <svg class="icon">
-        <use href="assets/icons.svg#lightbulb"></use>
-      </svg>
-      <span>اهتمامات</span>
-    </a>
-    <a [routerLink]="['/', 'about']" routerLinkActive="router-link-active" >
-      <svg class="icon">
-        <use href="assets/icons.svg#question"></use>
-      </svg>
-      <span>حولنا</span>
-    </a>
-
-  </div>
-
-</nav> -->
-<header class="text-gray-600 body-font">
-  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+<header class="nav">
+  <div class="container mx-auto flex flex-wrap flex-row items-center justify-between h-16 md:h-20">
+    <a class="flex title-font font-medium items-center z-30 text-gray-900 mb-4 md:mb-0" routerLink="/">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
       </svg>
-      <span class="ml-3 text-xl">Tailblocks</span>
+      <span class="mr-3 text-xl text-gray-600 hover:text-gray-800">تدريس</span>
     </a>
-    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-      <a class="mr-5 hover:text-gray-900">First Link</a>
-      <a class="mr-5 hover:text-gray-900">Second Link</a>
-      <a class="mr-5 hover:text-gray-900">Third Link</a>
-      <a class="mr-5 hover:text-gray-900">Fourth Link</a>
+    <!-- md:ml-auto md:mr-auto md:flex flex-wrap items-center text-base justify-center md:translate-y-0  -->
+    <nav class="nav-menus md:translate-y-0" [ngClass]="hideNav ? 'translate-y-[-200%]' : ''" (click)="hideNav = !hideNav">
+      <a routerLink="home" class="mr-0 md:mr-5 nav-link">الرئيسية</a>
+      <a routerLink="courses" class="mr-0 md:mr-5 nav-link">تعلم</a>
+      <a routerLink="intrests" class="mr-0 md:mr-5 nav-link">القرائة</a>
+      <a routerLink="about" class="mr-0 md:mr-5 nav-link">تواصل معنا</a>
+      <button class="inline-flex items-center bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-600 mb-3 rounded md:mt-0">التسجيل
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 mr-1 rotate-180" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </button>
     </nav>
-    <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Button
-      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-        <path d="M5 12h14M12 5l7 7-7 7"></path>
-      </svg>
+    <!-- Mobile Menu Button -->
+    <button id="toggle-menu" class="inline-flex md:hidden mb-3 rounded z-30 p-2" (click)="hideNav = !hideNav" >
+      <img [src]="hideNav ? 'assets/icons/icon-menu.svg' : 'assets/icons/icon-close.svg'" alt="">
     </button>
+
   </div>
 
 </header>
