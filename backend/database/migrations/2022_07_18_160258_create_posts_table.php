@@ -14,7 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->unsignedInteger('author_id')->default(0);
+            $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedInteger('category')->default(0);
+            $table->foreign('category')->references('id')->on('categories')->onDelete('cascade');
+            $table->string('title');
+            $table->text('content');
+            $table->datetime('posted_at');
             $table->timestamps();
         });
     }
