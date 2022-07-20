@@ -21,7 +21,7 @@ class Lesson extends JsonResource
             'content' => $this->content,
             'posted_at' => $this->posted_at->toIso8601String(),
             'author_id' => $this->author_id,
-            'course' => $this->category,
+            'course' => $this->course,
             'comments_count' => $this->comments_count ?? $this->comments()->count()
         ];
     }

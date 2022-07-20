@@ -125,6 +125,29 @@ class User extends Authenticatable
     }
 
     /**
+     * Return the user's posts
+     */
+    public function categories(): HasMany
+    {
+        return $this->hasMany(Post::class, 'author_id');
+    }
+    /**
+     * Return the user's posts
+     */
+    public function courses(): HasMany
+    {
+        return $this->hasMany(Post::class, 'author_id');
+    }
+
+    /**
+     * Return the user's posts
+     */
+    public function lessons(): HasMany
+    {
+        return $this->hasMany(Lesson::class, 'author_id');
+    }
+
+    /**
      * Return the user's comments
      */
     public function comments(): HasMany

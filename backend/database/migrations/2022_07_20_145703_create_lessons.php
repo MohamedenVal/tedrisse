@@ -14,7 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('lessons', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->unsignedInteger('author_id')->default(0);
+            $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedInteger('course')->default(0);
+            $table->foreign('course')->references('id')->on('courses')->onDelete('cascade');
+            $table->string('title');
+            $table->text('content');
+            $table->datetime('posted_at');
             $table->timestamps();
         });
     }
@@ -27,5 +34,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('lessons');
+
     }
 };

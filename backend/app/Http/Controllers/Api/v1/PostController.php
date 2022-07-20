@@ -21,9 +21,6 @@ class PostController extends Controller
             Post::search($request->input('q'))->withCount('comments')->latest()->paginate($request->input('limit', 20))
         );
 
-        // return PostResource::collection(
-        //     Post::all()
-        // );
     }
 
     /**
