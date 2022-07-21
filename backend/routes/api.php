@@ -25,27 +25,32 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Application Routes
 
-Route::get('/admin/users', [UserController::class, 'index']);
+Route::middleware(['cors'])->group(function () {
 
-Route::post('/admin/register', [UserController::class, 'store']);
-Route::post('/admin/login', [UserController::class, 'login']);
-Route::apiResource('posts', PostController::class)->only(['index', 'show']);
-Route::apiResource('categories', CategoryController::class)->only(['index', 'show']);
-Route::get('categories/{category}/posts', [CategoryController::class, 'posts'] );
+    Route::get('/admin/users', [UserController::class, 'index']);
 
-Route::apiResource('lessons', LessonController::class)->only(['index', 'show']);
-Route::apiResource('courses', CourseController::class)->only(['index', 'show']);
-Route::get('courses/{course}/lessons', [CourseController::class, 'lessons'] );
+    Route::post('/admin/register', [UserController::class, 'store']);
+    Route::post('/admin/login', [UserController::class, 'login']);
+    Route::apiResource('posts', PostController::class)->only(['index', 'show']);
+    Route::apiResource('categories', CategoryController::class)->only(['index', 'show']);
+    Route::get('categories/{category}/posts', [CategoryController::class, 'posts'] );
 
-
-// Protected routes
-Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::apiResource('posts', PostController::class)->only(['update', 'store', 'destroy']);
-    Route::apiResource('categories', CategoryController::class)->only(['update', 'store', 'destroy']);
-    Route::apiResource('lessons', LessonController::class)->only(['update', 'store', 'destroy']);
-    Route::apiResource('courses', CourseController::class)->only(['update', 'store', 'destroy']);
+    Route::apiResource('lessons', LessonController::class)->only(['index', 'show']);
+    Route::apiResource('courses', CourseController::class)->only(['index', 'show']);
+    Route::get('courses/{course}/lessons', [CourseController::class, 'lessons'] );
 
 
-    Route::post('/admin/logout', [UserController::class, 'logout']);
+    // Protected routes
+    Route::group(['middleware' => ['auth:sanctum']], function () {
+        Route::apiResource('posts', PostController::class)->only(['update', 'store', 'destroy']);
+        Route::apiResource('categories', CategoryController::class)->only(['update', 'store', 'destroy']);
+        Route::apiResource('lessons', LessonController::class)->only(['update', 'store', 'destroy']);
+        Route::apiResource('courses', CourseController::class)->only(['update', 'store', 'destroy']);
+
+
+        Route::post('/admin/logout', [UserController::class, 'logout']);
+
+    });
 
 });
+
