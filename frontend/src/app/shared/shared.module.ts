@@ -7,6 +7,8 @@ import { ButtonComponent } from './components/button/button.component';
 import { RouterModule } from '@angular/router';
 import { PostOverviewComponent } from '../components/post-overview/post-overview.component';
 import { PostsComponent } from '../components/posts/posts.component';
+import { DetailComponent } from './detail/detail.component';
+import { ExcerptPipe } from './pipes/excerpt.pipe';
 
 
 
@@ -17,7 +19,9 @@ import { PostsComponent } from '../components/posts/posts.component';
     CardComponent,
     ButtonComponent,
     PostOverviewComponent,
-    PostsComponent
+    PostsComponent,
+    DetailComponent,
+    ExcerptPipe
   ],
   imports: [
     CommonModule,
@@ -29,7 +33,9 @@ import { PostsComponent } from '../components/posts/posts.component';
     FooterComponent,
     NavigationComponent,
     PostOverviewComponent,
-    PostsComponent
+    PostsComponent,
+    DetailComponent,
+    ExcerptPipe
   ]
 })
 export class SharedModule { }

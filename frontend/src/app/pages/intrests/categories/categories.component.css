@@ -1,6 +1,7 @@
 .categories {
-  text-align: center;
-  margin: 12px 40px;
+  padding: 20px 10px 0 10px;
+  max-width: 900px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;

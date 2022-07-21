@@ -1,11 +1,11 @@
-.container {
+/* .container {
   height: 80vh;
   direction: rtl;
   display:grid;
   place-content:center;
   font-family:sans-serif;
   color:#6b6b6b;
-}
+} */
 
 /* Style the inputs with type="text" */
 /* input[type=text], select, textarea{
@@ -28,7 +28,7 @@
   cursor: pointer;
 } */
 
-form{
+/* form{
   width:90vw;
   max-width:768px;
   border:1px solid #ddd;
@@ -91,4 +91,4 @@ input:not(:placeholder-shown) + span{
 textarea:not(:placeholder-shown) + span {
   color:purple;
   transform:translateY(0px);
-}
+} */
