@@ -6,6 +6,13 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './common/nav/nav.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
+import { LoginComponent } from './pages/login/login.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ShellComponent } from './shell/shell.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SanctumInterceptor } from './services/sanctum.interceptor';
+import { ExcerptPipe } from './pipes/excerpt.pipe';
+import { CourseFormComponent } from './pages/courses/course-form/course-form.component';
 
 @NgModule({
   declarations: [
@@ -13,12 +20,20 @@ import { SidebarComponent } from './common/sidebar/sidebar.component';
     NavComponent,
     FooterComponent,
     SidebarComponent,
+    LoginComponent,
+    ShellComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: SanctumInterceptor, multi: true }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

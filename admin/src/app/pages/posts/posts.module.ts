@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { PostsRoutingModule } from './posts-routing.module';
 import { PostsComponent } from './posts.component';
+import { PostFormComponent } from './post-form/post-form.component';
 
 
 @NgModule({
   declarations: [
-    PostsComponent
+    PostsComponent,
+    PostFormComponent
   ],
   imports: [
     CommonModule,
