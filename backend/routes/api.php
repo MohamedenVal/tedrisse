@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\v1\CategoryController;
 use App\Http\Controllers\Api\v1\LessonController;
 use App\Http\Controllers\Api\v1\CourseController;
 use App\Http\Controllers\Api\v1\Admin\UserController;
+use App\Http\Controllers\Api\v1\MessageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,15 +39,20 @@ Route::middleware(['cors'])->group(function () {
     Route::apiResource('lessons', LessonController::class)->only(['index', 'show']);
     Route::apiResource('courses', CourseController::class)->only(['index', 'show']);
     Route::get('courses/{course}/lessons', [CourseController::class, 'lessons'] );
-
+    Route::apiResource('students/messages', MessageController::class)->only(['store']);
 
     // Protected routes
     Route::group(['middleware' => ['auth:sanctum']], function () {
-        Route::apiResource('posts', PostController::class)->only(['update', 'store', 'destroy']);
         Route::apiResource('categories', CategoryController::class)->only(['update', 'store', 'destroy']);
+        Route::apiResource('posts', PostController::class)->only(['update', 'store', 'destroy']);
         Route::apiResource('lessons', LessonController::class)->only(['update', 'store', 'destroy']);
         Route::apiResource('courses', CourseController::class)->only(['update', 'store', 'destroy']);
 
+        Route::apiResource('students/messages', MessageController::class)->only(['index', 'show', 'update', 'destroy']);
+
+        Route::get('students/unread/messages', [MessageController::class, 'unread'] );
+        Route::get('students/read/messages', [MessageController::class, 'read'] );
+        Route::post('students/read/{message}', [MessageController::class, 'setread'] );
 
         Route::post('/admin/logout', [UserController::class, 'logout']);
 
