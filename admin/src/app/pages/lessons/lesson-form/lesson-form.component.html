@@ -22,11 +22,11 @@
 
 
 
-        <div class="col-span-6 sm:col-span-3" *ngIf="cats">
-          <label for="category" class="block text-sm font-medium text-gray-700">فإة المقالة</label>
-          <select  id="category"  formControlName="category" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-            <option *ngFor="let category of cats.data" [value]="category.id" [selected]="(selectedCat === category.id) && editMode " >
-              {{ category.title }}
+        <div class="col-span-6 sm:col-span-3" *ngIf="courses">
+          <label for="course" class="block text-sm font-medium text-gray-700">فإة المقالة</label>
+          <select  id="course"  formControlName="course" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            <option *ngFor="let course of courses.data" [value]="course.id" [selected]="(selectedCourse === course.id) && editMode " >
+              {{ course.name }}
             </option>
           </select>
         </div>

@@ -3,11 +3,13 @@ import { HttpClient } from "@angular/common/http";
 import { LocalstorageService } from './localstorage.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  authApi = environment.apiUrl + 'admin'
 
   constructor(
     private http: HttpClient,
@@ -17,15 +19,17 @@ export class AuthService {
 
   login(email: string, password: string): Observable<any> {
 
-    return this.http.post<any>('http://localhost:8080/tedrisse/backend/public/api/admin/login', {
+    return this.http.post<any>(`${this.authApi}/login`, {
       'email': email,
       "password": password
     });
   }
 
   logout() {
-    this.tokenService.removeToken();
-    this.router.navigate(['/login']);
+    this.http.post<any>(`${this.authApi}/logout`, {}).subscribe((res) => {
+      this.tokenService.removeToken();
+      this.router.navigate(['/login']);
+    })
   }
 
 

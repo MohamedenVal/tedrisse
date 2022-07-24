@@ -11,8 +11,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ShellComponent } from './shell/shell.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SanctumInterceptor } from './services/sanctum.interceptor';
-import { ExcerptPipe } from './pipes/excerpt.pipe';
-import { CourseFormComponent } from './pages/courses/course-form/course-form.component';
 
 @NgModule({
   declarations: [

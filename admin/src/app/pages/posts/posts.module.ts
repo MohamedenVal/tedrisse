@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PostsRoutingModule } from './posts-routing.module';
 import { PostsComponent } from './posts.component';
 import { PostFormComponent } from './post-form/post-form.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +15,10 @@ import { PostFormComponent } from './post-form/post-form.component';
   ],
   imports: [
     CommonModule,
-    PostsRoutingModule
+    FormsModule,
+    ReactiveFormsModule,
+    PostsRoutingModule,
+    SharedModule
   ]
 })
 export class PostsModule { }
