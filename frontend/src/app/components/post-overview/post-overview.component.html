@@ -1,26 +1,10 @@
-<!-- <div class="post" [ngClass]="(post?.index % 2 === 0) ? 'left' : 'right' ">
-  <div class="post-image">
-    <img src="assets/slider/coding.jpg" alt="">
-  </div>
-  <div class="post-text">
-    <h3>هذا النص العربي هو مثال.</h3>
-    <p>
-      هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
-      إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص كما يمكن استخدامه لتصاميم الجرافيكس.
-    </p>
-  </div>
-
-
-</div>
-<hr class="divider"> -->
-
-<div class="p-4 sm:mb-0 mb-6">
-  <div class="rounded-lg h-64 overflow-hidden">
+<div class="py-4 px-8 sm:mb-0 mb-6 bg-white mx-3 my-6 rounded-lg hover:scale-95 transition-all">
+  <!-- <div class="rounded-lg h-64 overflow-hidden">
     <img alt="content" class="object-cover object-center h-full w-full" src="assets/slider/coding.jpg">
-  </div>
+  </div> -->
   <h2 class="text-xl font-medium title-font text-gray-900 mt-5">{{ post.title }}</h2>
   <p class="text-base leading-relaxed mt-2">
-    {{ post.content | excerpt }}
+    {{ post.content | excerpt:150 }}
   </p>
   <a class="text-indigo-500 inline-flex items-center mt-3" routerLink="/intrests/post/1">إقراء المزيد
     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 mr-2 rotate-180" viewBox="0 0 24 24">

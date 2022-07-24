@@ -1,49 +1,44 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { catchError, Observable, retry, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { PaginatedPost } from '../models/paginated-post.model';
-import { Post } from '../models/post.model';
+import { Lesson } from '../models/lesson.model';
+import { PaginatedLesson } from '../models/paginated-lesson.model';
 
-export interface Data {
-  data: Post;
+export interface LessonData {
+  data: Lesson;
 }
 @Injectable({
   providedIn: 'root'
 })
-export class PostsService {
-  postApi = environment.apiUrl + 'posts'
+export class LessonsService {
+  lessonApi = environment.apiUrl + 'lessons';
 
   constructor(private http: HttpClient) { }
 
-  getPosts(): Observable<PaginatedPost> {
-    return this.http.get<PaginatedPost>(this.postApi)
+  getLessons() {
+    return this.http.get<PaginatedLesson>(this.lessonApi)
+  }
+  getLesson(id: string): Observable<LessonData> {
+    return this.http.get<LessonData>(`${this.lessonApi}/${id}`)
       .pipe(
         retry(3), // retry failed request up to 3 times
         catchError(this.handleError)
       )
   }
 
-  getPost(id: string): Observable<Data> {
-    return this.http.get<Data>(`${this.postApi}/${id}`)
-      .pipe(
-        retry(3), // retry failed request up to 3 times
-        catchError(this.handleError)
-      )
-  }
-
-  createPost(postFormData: FormData): Observable<Post> {
-    return this.http.post<Post>(this.postApi, postFormData)
+  createLesson(lessonFormData: FormData): Observable<Lesson> {
+    return this.http.post<Lesson>(this.lessonApi, lessonFormData)
       .pipe(
         catchError(this.handleError)
       )
   }
 
-  updatePost(postFormData: FormData, id: string): Observable<Post> {
-    return this.http.put<Post>(`${this.postApi}/${id}`, {
-      title: postFormData.get('title'),
-      content: postFormData.get('content'),
-      category: postFormData.get('category'),
+  updateLesson(lessonFormData: FormData, id: string): Observable<Lesson> {
+    return this.http.put<Lesson>(`${this.lessonApi}/${id}`, {
+      title: lessonFormData.get('title'),
+      content: lessonFormData.get('content'),
+      category: lessonFormData.get('category'),
       author_id: '1',
     })
       .pipe(
@@ -51,8 +46,8 @@ export class PostsService {
       )
   }
 
-  deletePost(id: string) {
-    return this.http.delete(`${this.postApi}/${id}`)
+  deleteLesson(id: string) {
+    return this.http.delete(`${this.lessonApi}/${id}`)
       .pipe(
         catchError(this.handleError)
       )
