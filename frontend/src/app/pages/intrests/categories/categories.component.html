@@ -1,15 +1,9 @@
-<div class="categories">
-
-  <app-category-item></app-category-item>
-
-  <app-category-item></app-category-item>
-
-  <app-category-item></app-category-item>
-
-  <app-category-item></app-category-item>
-
-  <app-category-item></app-category-item>
-
-</div>
-
-
+<section *ngIf="categories" class="text-gray-600 body-font">
+  <div class="container px-5 py-6 mx-auto">
+    <div class="flex flex-wrap -m-4 text-center justify-around">
+      <div *ngFor="let category of categories" class="p-4 sm:w-1/4 w-1/2 m-3 bg-gray-200 rounded-lg hover:scale-105 hover:bg-gray-50 transition-all border border-gray-900 border-dashed">
+        <app-category-item [routerLink]="['category', category.id]" [category]="category" class="cursor-pointer"></app-category-item>
+      </div>
+    </div>
+  </div>
+</section>

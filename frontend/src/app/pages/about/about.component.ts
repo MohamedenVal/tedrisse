@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Message, MessagesService } from 'src/app/services/messages.service';
 
 @Component({
   selector: 'app-about',
@@ -6,28 +8,48 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  form!: FormGroup;
+  isSubmited = false;
+  message!: Message;
+  success = false;
 
-  countries = [
-    {
-      value: 'Mauritania',
-      name: 'موريتانيا'
-    },
-    {
-      value: 'Algeria',
-      name: 'الجزائر'
-    },
-    {
-      value: 'Marroco',
-      name: 'المغرب'
-    },
-    {
-      value: 'Tunisia',
-      name: 'تونس'
-    },
-  ]
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private messagesService: MessagesService,
+  ) { }
 
   ngOnInit(): void {
+    this.initform()
+  }
+
+  onSubmit() {
+    this.isSubmited = true;
+    if(this.form.invalid) return;
+
+    const messageFormData = new FormData();
+
+    Object.keys(this.messageForm).map( (key) => {
+      messageFormData.append(key, this.messageForm[key].value);
+    })
+
+    this.messagesService.createMessgae(messageFormData)
+      .subscribe((res) => {
+        this.success = true;
+        this.message = res;
+      })
+
+  }
+
+  private initform() {
+    this.form = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      message: ['', Validators.required],
+    })
+  }
+
+  get messageForm() {
+    return this.form.controls;
   }
 
 }

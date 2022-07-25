@@ -2,29 +2,31 @@
   <div class="slider active" >
     <!-- style="background-image: url({{slides[i].image}});" -->
     <section class="text-gray-600 body-font">
-      <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+      <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center transition-transform duration-300">
         <div class="h-full lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-          <img class="object-cover object-center rounded" alt="hero" [src]="slides[i].image">
+          <img class="object-cover object-center rounded h-80 w-96" alt="hero" [src]="slides[i].image">
         </div>
         <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-right items-center text-center">
-          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">تعلم البرمجة
-            <br class="hidden lg:inline-block">برمجة الويب
+          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+            {{ slides[i].title }}
           </h1>
           <p class="mb-8 leading-relaxed">
-            هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+            {{ slides[i].highlight }}
           </p>
           <div class="flex justify-center">
-            <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">المزيد</button>
-            <button class="mr-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">الدورات</button>
+            <button [routerLink]="slides[i].link" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+            {{ slides[i].action }}
+            </button>
+            <!-- <button class="mr-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">الدورات</button> -->
           </div>
         </div>
       </div>
     </section>
 
-    <svg class="right" (click)="changesSlide()">
+    <svg class="right" (click)="nextSlide()">
       <use href="./assets/icons.svg#icon-chevron-small-right"></use>
     </svg>
-    <svg class="left" (click)="changesSlide(-1)">
+    <svg class="left" (click)="prevSlide()">
       <use href="./assets/icons.svg#icon-chevron-small-left"></use>
     </svg>
   </div>

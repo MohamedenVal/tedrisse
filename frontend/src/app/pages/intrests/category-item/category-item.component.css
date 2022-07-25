@@ -1,18 +1,1 @@
-.category {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  padding: 8px 16px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: #fafafa;
-  box-shadow: var(--card-shadow);
-}
-
-.category:hover {
-  cursor: pointer;
-  box-shadow: 0 0 0;
-  transform: scale(.98);
-  transition: all .3s ease-in;
-}
+/*  */

@@ -11,6 +11,10 @@ const routes: Routes = [
         (m) => m.PostDetailModule
       ),
   },
+  {
+    path: 'category/:id',
+    component: IntrestsComponent
+  }
 ];
 
 @NgModule({
