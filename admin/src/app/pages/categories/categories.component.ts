@@ -14,8 +14,6 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategories();
-    console.log(this.cats);
-
   }
 
   private getCategories() {
