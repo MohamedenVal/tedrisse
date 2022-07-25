@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Message, MessagesService } from 'src/app/services/messages.service';
 
 @Component({
@@ -16,10 +17,12 @@ export class AboutComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private messagesService: MessagesService,
+    private title: Title
   ) { }
 
   ngOnInit(): void {
     this.initform()
+    this.title.setTitle('تواصل معنا | تدريس')
   }
 
   onSubmit() {

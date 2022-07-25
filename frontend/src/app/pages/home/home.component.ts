@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Course } from 'src/app/models/course.model';
 import { Post } from 'src/app/models/post.model';
 import { CourseService } from 'src/app/services/course.service';
@@ -13,11 +14,16 @@ export class HomeComponent implements OnInit {
   posts: Post[] = [];
   courses: Course[] = [];
 
-  constructor(private postsService: PostsService, private coursesService: CourseService) { }
+  constructor(
+    private postsService: PostsService,
+    private coursesService: CourseService,
+    private title: Title
+  ) { }
 
   ngOnInit(): void {
     this.getPosts();
     this.getCourses();
+    this.title.setTitle('الرئيسية - البرمجة والتقنيات بالعربية | تدريس')
   }
 
   getPosts() {

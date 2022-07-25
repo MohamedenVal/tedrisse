@@ -36,7 +36,7 @@ export class SliderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.changeSlides();
+    // this.changeSlides();
   }
 
   public prevSlide() {

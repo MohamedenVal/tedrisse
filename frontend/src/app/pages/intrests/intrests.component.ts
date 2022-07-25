@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Category } from 'src/app/models/category.model';
 import { Post } from 'src/app/models/post.model';
@@ -13,11 +14,13 @@ import { PostsService } from 'src/app/services/posts.service';
 export class IntrestsComponent implements OnInit {
   categories!: Category[];
   posts!: Post[];
+  category!: Category;
 
   constructor(
     private categoriesService: CategoriesService,
     private postsService: PostsService,
     private route: ActivatedRoute,
+    private title: Title,
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +37,7 @@ export class IntrestsComponent implements OnInit {
           .subscribe((res) => {
             this.posts = res;
           })
+        this.getCat(id);
       } else {
         this.getCategories()
         this.getPosts()
@@ -45,6 +49,7 @@ export class IntrestsComponent implements OnInit {
     this.categoriesService.getCategories()
       .subscribe((res) => {
         this.categories = res.data;
+        this.title.setTitle(`مواضيع مهمة في البرمجة والعلوم الحديثة - إهتمامات | تدريس`)
       })
   }
 
@@ -52,6 +57,14 @@ export class IntrestsComponent implements OnInit {
     this.postsService.getPosts()
       .subscribe((res) => {
         this.posts = res.data
+      })
+  }
+
+  getCat(id: string) {
+    this.categoriesService.getCategory(id)
+      .subscribe((res) => {
+        this.category = res
+        this.title.setTitle(`مقالات حول ${res.title} - المقالات | تدريس`)
       })
   }
 }

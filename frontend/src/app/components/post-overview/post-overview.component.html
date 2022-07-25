@@ -6,7 +6,7 @@
   <p class="text-base leading-relaxed mt-2">
     {{ post.content | excerpt:150 }}
   </p>
-  <a class="text-indigo-500 inline-flex items-center mt-3" routerLink="/intrests/post/1">إقراء المزيد
+  <a class="text-indigo-500 inline-flex items-center mt-3" [routerLink]="['/', 'intrests', 'post', post.id]">إقراء المزيد
     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 mr-2 rotate-180" viewBox="0 0 24 24">
       <path d="M5 12h14M12 5l7 7-7 7"></path>
     </svg>

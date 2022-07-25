@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Course } from 'src/app/models/course.model';
 import { Lesson } from 'src/app/models/lesson.model';
@@ -13,7 +14,7 @@ export class CourseDetailComponent implements OnInit {
   course!: Course;
   courseLessons: Lesson[] = [];
 
-  constructor(private coursesService: CourseService, private route: ActivatedRoute) { }
+  constructor(private coursesService: CourseService, private route: ActivatedRoute, private title: Title) { }
 
   ngOnInit(): void {
     this.getSelectedCourse()
@@ -28,6 +29,7 @@ export class CourseDetailComponent implements OnInit {
         this.coursesService.getCourse(id)
           .subscribe((res) => {
             this.course = res
+            this.title.setTitle(`${res.name} | تدريس`)
           })
 
         this.coursesService.getCourseLessons(id)
