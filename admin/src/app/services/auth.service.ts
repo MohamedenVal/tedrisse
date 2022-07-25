@@ -28,8 +28,9 @@ export class AuthService {
   logout() {
     this.http.post<any>(`${this.authApi}/logout`, {}).subscribe((res) => {
       this.tokenService.removeToken();
-      this.router.navigate(['/login']);
     })
+    this.tokenService.removeToken();
+    this.router.navigate(['/login']);
   }
 
 

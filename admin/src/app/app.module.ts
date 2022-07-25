@@ -11,6 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ShellComponent } from './shell/shell.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SanctumInterceptor } from './services/sanctum.interceptor';
+import { IconComponent } from './common/icon/icon.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SanctumInterceptor } from './services/sanctum.interceptor';
     SidebarComponent,
     LoginComponent,
     ShellComponent,
+    IconComponent,
   ],
   imports: [
     BrowserModule,

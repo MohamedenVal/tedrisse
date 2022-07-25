@@ -40,3 +40,9 @@ hover\:border-none:hover {
 #sidebar:hover span {
   opacity: 1;
 }
+
+@layer components {
+  .sidebar-icon {
+    @apply relative flex items-center justify-center h-20 w-20 my-2 mx-auto shadow-lg bg-gray-800 text-green-500 hover:bg-green-600 hover:text-white rounded-full hover:rounded-xl transition-all duration-300 ease-linear cursor-pointer;
+  }
+}

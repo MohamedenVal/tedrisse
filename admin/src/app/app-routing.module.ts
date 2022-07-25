@@ -44,12 +44,16 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/users/users.module').then((m) => m.UsersModule),
       },
+      {
+        path: 'messages',
+        loadChildren: () => import('./pages/messgaes/messgaes.module').then(m => m.MessgaesModule)
+      }
     ]
   },
   {
     path: 'login',
     component: LoginComponent
-  }
+  },
 
 ];
 

@@ -1,0 +1,15 @@
+<div class="mt-32">
+  <div class="px-4 sm:px-8 max-w-5xl m-auto">
+      <h1 class="text-center font-semibold text-sm">الرسائل</h1>
+      <p class="mt-2 text-center text-xs mb-4 text-gray-500">لائحة الرسائل </p>
+      <ul class="border border-gray-200 rounded overflow-hidden shadow-md">
+          <li *ngFor="let msg of messages | async" [routerLink]="['detail', msg.id]" class="flex cursor-pointer justify-between px-4 py-2 bg-white hover:text-sky-900 border-b last:border-none border-gray-200 transition-all duration-300 ease-in-out" [ngClass]="!msg.read ? 'bg-green-400 hover:bg-green-300' : 'bg-white hover:bg-sky-100' ">
+            <span>{{ msg.message | excerpt:50 }}</span>
+            <div class="flex justify-end">
+              <span>{{ msg.name }}</span>,
+              <span class="mx-2">{{ msg.created_at | date }}</span>
+            </div>
+          </li>
+      </ul>
+  </div>
+</div>
