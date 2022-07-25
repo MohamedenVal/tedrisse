@@ -23,6 +23,12 @@ class PostController extends Controller
 
     }
 
+    public function count()
+    {
+        return Post::count();
+        // return 6;
+    }
+
     /**
      * Update the specified resource in storage.
      */

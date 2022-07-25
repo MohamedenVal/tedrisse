@@ -32,13 +32,21 @@ Route::middleware(['cors'])->group(function () {
 
     Route::post('/admin/register', [UserController::class, 'store']);
     Route::post('/admin/login', [UserController::class, 'login']);
+
     Route::apiResource('posts', PostController::class)->only(['index', 'show']);
+    Route::get('posts/resource/count', [PostController::class, 'count']);
+
     Route::apiResource('categories', CategoryController::class)->only(['index', 'show']);
     Route::get('categories/{category}/posts', [CategoryController::class, 'posts'] );
+    Route::get('categories/resource/count', [CategoryController::class, 'count']);
 
     Route::apiResource('lessons', LessonController::class)->only(['index', 'show']);
+    Route::get('lessons/resource/count', [LessonController::class, 'count']);
+
     Route::apiResource('courses', CourseController::class)->only(['index', 'show']);
     Route::get('courses/{course}/lessons', [CourseController::class, 'lessons'] );
+    Route::get('courses/resource/count', [CourseController::class, 'count']);
+
     Route::apiResource('students/messages', MessageController::class)->only(['store']);
 
     // Protected routes

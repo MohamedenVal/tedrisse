@@ -26,6 +26,11 @@ class LessonController extends Controller
         );
     }
 
+    public function count()
+    {
+        return Lesson::count();
+    }
+
     /**
      * Return the specified resource.
      */

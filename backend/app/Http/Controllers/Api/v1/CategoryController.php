@@ -18,6 +18,11 @@ class CategoryController extends Controller
         return Category::search($request->input('q'))->withCount('posts')->latest()->paginate($request->input('limit', 20));
     }
 
+    public function count()
+    {
+        return Category::count();
+    }
+
     /**
      * Return the specified resource.
      */

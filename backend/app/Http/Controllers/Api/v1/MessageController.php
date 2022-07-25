@@ -16,6 +16,11 @@ class MessageController extends Controller
         return Message::all();
     }
 
+    public function count()
+    {
+        return Message::count();
+    }
+
     /**
      * return a specified resourse
      */

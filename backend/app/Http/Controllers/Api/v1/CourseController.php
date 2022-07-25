@@ -17,6 +17,11 @@ class CourseController extends Controller
 
     }
 
+    public function count()
+    {
+        return Course::count();
+    }
+
     /**
      * Return the specified resource.
      */
