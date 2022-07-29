@@ -4,7 +4,7 @@
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">إضافة دورة</h1>
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base">إضافة دورة تدريبية من إجل إضافة دروس خاصة لهذه الدورة</p>
     </div>
-    <div class="lg:w-1/2 md:w-2/3 mx-auto">
+    <div class="container px-5 mx-auto">
       <form [formGroup]="form" class="block -m-2">
         <div class="p-2 w-1/2">
           <div class="relative">
@@ -22,7 +22,7 @@
 
 
 
-        <div class="col-span-6 sm:col-span-3" *ngIf="courses">
+        <div class="col-span-6 md:col-span-3 md:w-1/3" *ngIf="courses">
           <label for="course" class="block text-sm font-medium text-gray-700">فإة المقالة</label>
           <select  id="course"  formControlName="course" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
             <option *ngFor="let course of courses.data" [value]="course.id" [selected]="(selectedCourse === course.id) && editMode " >
@@ -32,12 +32,13 @@
         </div>
 
         <div class="p-2 w-full">
-          <div class="relative">
-            <label for="content" class="leading-7 text-sm text-gray-600">التفاصيل</label>
-            <textarea id="content" formControlName="content" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+          <div class="relative h-64">
+            <label for="content" class="leading-7 text-sm text-gray-600">محتوى الدرس</label>
+            <!-- <textarea id="content" formControlName="content" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea> -->
+            <quill-editor formControlName="content"></quill-editor>
           </div>
         </div>
-        <div class="p-2 w-full">
+        <div class="p-2 w-full mt-32">
           <button (click)="onSubmit()" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" [ngClass]="editMode ? 'bg-indigo-500 hover:bg-indigo-600' : 'bg-green-500 hover:bg-green-600' ">
             {{ editMode ? 'تعديل' : 'إنشاء' }}
           </button>
@@ -46,3 +47,4 @@
     </div>
   </div>
 </section>
+

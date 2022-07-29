@@ -8,14 +8,14 @@ import { DateAgoPipe } from '../pipe/date-ago.pipe';
 @NgModule({
   declarations: [
     ExcerptPipe,
-    DateAgoPipe
+    DateAgoPipe,
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     ExcerptPipe,
-    DateAgoPipe
+    DateAgoPipe,
   ]
 })
 export class SharedModule { }
