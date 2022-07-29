@@ -43,6 +43,9 @@ export class HomeComponent implements OnInit {
 
   private limitElements(number = 3, elems: Array<any>): Array<any> {
     let newElems: any[] = [];
+    if (!elems) {
+      return elems;
+    }
     elems.forEach((elem, counter = 0) => {
       counter++;
       if(counter <= number) {
