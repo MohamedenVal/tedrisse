@@ -1,16 +1,15 @@
 <!-- <app-detail></app-detail> -->
-<!-- <section *ngIf="post" class="text-gray-600 body-font">
-  <div class="flex items-center space-x-8">
-
-    <div class="text-xs text-neutral-500">{{ post.posted_at | date }}</div>
-  </div>
+<section class="text-gray-600 body-font">
   <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-
-    <div class="text-center lg:w-2/3 w-full">
+    <app-spinner *ngIf="!post" size="32" class="mt-6 lg:w-2/3 w-full flex justify-center"></app-spinner>
+    <div *ngIf="post" class="lg:w-2/3 w-full">
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"> {{ post.title }}</h1>
-      <p class="mb-8 leading-relaxed">
-        {{post.content}}
-      </p>
+      <div class="text-xs text-neutral-500">{{ post.posted_at | date }}</div>
+      <div class="flex items-center space-x-8">
+
+      </div>
+      <div class="mb-8 leading-relaxed" [innerHtml]="post.content">
+      </div>
     </div>
 
     <div>
@@ -33,26 +32,25 @@
     </div>
 
   </div>
-</section> -->
+</section>
 
 <!-- component -->
 <!-- This is an example component -->
-<div *ngIf="post" class='flex items-center justify-center max-h-screen my-32'>  <div class="rounded-xl border p-5 shadow-md w-11/12 bg-white">
-  <div class="flex w-full items-center justify-between border-b pb-3">
-    <div class="flex items-center space-x-3">
+<!-- <div *ngIf="post" class='flex items-center justify-center max-h-screen my-32'>  <div class="rounded-xl border p-5 shadow-md w-11/12 bg-white"> -->
+  <!-- <div class="flex w-full items-center justify-between border-b pb-3">
+    <div class="flex items-center space-x-3"> -->
       <!-- <div class="h-8 w-8 rounded-full bg-slate-400 "></div> -->
-      <div class="text-lg font-bold text-slate-700">{{ post.title }}</div>
+      <!-- <div class="text-lg font-bold text-slate-700">{{ post.title }}</div>
     </div>
     <div class="flex items-center space-x-8">
-      <!-- <button class="rounded-2xl border bg-neutral-100 px-3 py-1 text-xs font-semibold">Category</button> -->
+      <button class="rounded-2xl border bg-neutral-100 px-3 py-1 text-xs font-semibold">Category</button>-
       <div class="text-xs text-neutral-500">{{ post.posted_at | date }}</div>
     </div>
-  </div>
+  </div> -->
 
-  <div class="mt-4 mb-6">
-    <!-- <div class="mb-3 text-xl font-bold">Nulla sed leo tempus, feugiat velit vel, rhoncus neque?</div> -->
-    <div class="text-sm text-neutral-600">
-      {{ post.content }}
+  <!--<div class="mt-4 mb-6">
+     <div class="mb-3 text-xl font-bold">Nulla sed leo tempus, feugiat velit vel, rhoncus neque?</div>
+    <div class="container text-sm text-neutral-600 text-lg" [innerHtml]="post.content">
     </div>
   </div>
 
@@ -75,4 +73,4 @@
     </div>
   </div>
 </div>
-
+-->

@@ -8,10 +8,10 @@
     </a>
     <!-- md:ml-auto md:mr-auto md:flex flex-wrap items-center text-base justify-center md:translate-y-0  -->
     <nav class="nav-menus md:translate-y-0" [ngClass]="hideNav ? 'translate-y-[-200%]' : ''" (click)="hideNav = !hideNav">
-      <a routerLink="" class="mr-0 md:mr-5 nav-link">الرئيسية</a>
-      <a routerLink="courses" class="mr-0 md:mr-5 nav-link">تعلم</a>
-      <a routerLink="intrests" class="mr-0 md:mr-5 nav-link">إهتمامات</a>
-      <a routerLink="about" class="mr-0 md:mr-5 nav-link">تواصل معنا</a>
+      <a routerLink="/" class="mr-0 md:mr-5 nav-link">الرئيسية</a>
+      <a routerLink="courses" routerLinkActive="border-primary" class="mr-0 md:mr-5 nav-link">تعلم</a>
+      <a routerLink="intrests" routerLinkActive="border-primary" class="mr-0 md:mr-5 nav-link">إهتمامات</a>
+      <a routerLink="about" routerLinkActive="border-primary"  class="mr-0 md:mr-5 nav-link">تواصل معنا</a>
       <!-- <button class="inline-flex items-center bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-600 mb-3 rounded md:mt-0">التسجيل
         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 mr-1 rotate-180" viewBox="0 0 24 24">
           <path d="M5 12h14M12 5l7 7-7 7"></path>

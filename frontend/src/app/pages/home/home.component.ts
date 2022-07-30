@@ -11,8 +11,8 @@ import { PostsService } from 'src/app/services/posts.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  posts: Post[] = [];
-  courses: Course[] = [];
+  posts!: Post[];
+  courses!: Course[];
 
   constructor(
     private postsService: PostsService,

@@ -3,9 +3,8 @@
     <img alt="content" class="object-cover object-center h-full w-full" src="assets/slider/coding.jpg">
   </div> -->
   <h2 class="text-xl font-medium title-font text-gray-900 mt-5">{{ post.title }}</h2>
-  <p class="text-base leading-relaxed mt-2">
-    {{ post.content | excerpt:150 }}
-  </p>
+  <div class="text-base leading-relaxed mt-2 h-32 overflow-y-hidden" [innerHtml]="post.content">
+  </div>
   <a class="text-indigo-500 inline-flex items-center mt-3" [routerLink]="['/', 'intrests', 'post', post.id]">إقراء المزيد
     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 mr-2 rotate-180" viewBox="0 0 24 24">
       <path d="M5 12h14M12 5l7 7-7 7"></path>

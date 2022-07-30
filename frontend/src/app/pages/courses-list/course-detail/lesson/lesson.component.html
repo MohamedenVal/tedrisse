@@ -1,5 +1,6 @@
 <section class="text-gray-600 body-font">
-  <div *ngIf="lesson" class="container px-5 py-24 mx-auto flex flex-col">
+
+  <div class="container px-5 py-24 mx-auto flex flex-col">
     <div class="lg:w-4/6 mx-auto">
 
       <div class="flex flex-col sm:flex-row mt-10">
@@ -10,31 +11,32 @@
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
           </div>
-          <div class="flex flex-col items-center text-center justify-center">
+
+          <div *ngIf="lesson" class="flex flex-col items-center justify-center">
             <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">{{ lesson.title }}</h2>
             <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
             <p class="text-base">
               محمذن فال حادن
             </p>
           </div>
+          <app-spinner *ngIf="!lesson" class="text-center flex justify-center"></app-spinner>
 
-          <div class="mt-6 flex flex-col text-center w-full">
+          <div *ngIf="courseLessons"  class="mt-6 flex flex-col text-center w-full">
             <div class="my-3 w-full" *ngFor="let lesson of courseLessons">
               <a [routerLink]="['/','courses', 'course', '1', 'lesson', lesson.id]" class="bg-gray-100 p-3 w-full rounded-lg mx-auto hover:bg-gray-300">
                 {{ lesson.title }}
               </a>
             </div>
           </div>
+          <app-spinner *ngIf="!courseLessons" class="mt-6 flex flex-col justify-center items-center w-full"></app-spinner>
+
         </div>
         <div class="sm:w-2/3 sm:pr-8 sm:py-8 sm:border-r border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-right">
-          <p class="leading-relaxed text-lg mb-4">
-            {{ lesson.content }}
-          </p>
-          <a class="text-indigo-500 inline-flex items-center">ابدأ الآن
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 mr-2 rotate-180" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
+          <app-spinner *ngIf="!lesson" [size]="'64'" ></app-spinner>
+          <div *ngIf="lesson" class="leading-relaxed text-lg mb-4" [innerHtml]="lesson.content">
+          </div>
+
+
         </div>
       </div>
     </div>

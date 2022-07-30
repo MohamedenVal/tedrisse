@@ -9,6 +9,7 @@ import { PostOverviewComponent } from '../components/post-overview/post-overview
 import { PostsComponent } from '../components/posts/posts.component';
 import { DetailComponent } from './detail/detail.component';
 import { ExcerptPipe } from './pipes/excerpt.pipe';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
@@ -21,7 +22,8 @@ import { ExcerptPipe } from './pipes/excerpt.pipe';
     PostOverviewComponent,
     PostsComponent,
     DetailComponent,
-    ExcerptPipe
+    ExcerptPipe,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +37,8 @@ import { ExcerptPipe } from './pipes/excerpt.pipe';
     PostOverviewComponent,
     PostsComponent,
     DetailComponent,
-    ExcerptPipe
+    ExcerptPipe,
+    SpinnerComponent
   ]
 })
 export class SharedModule { }

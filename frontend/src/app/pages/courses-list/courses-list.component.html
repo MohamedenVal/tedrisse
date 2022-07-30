@@ -1,5 +1,6 @@
 <section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
+  <app-spinner *ngIf="!courses" size="32" class="container flex justify-center px-5 py-24 mx-auto"></app-spinner>
+  <div *ngIf="courses" class="container px-5 py-24 mx-auto" >
     <div *ngFor="let course of courses, index as i" class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
       <!-- [ngClass]="(i % 2 === 1) ? 'flex-row-reverse' : ''" -->
       <div class="sm:w-32 sm:h-32 h-20 w-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0" [ngClass]="(i % 2 === 1) ? 'sm:order-1 order-first sm:mr-10' : 'sm:ml-10 order-2'">
@@ -17,6 +18,5 @@
         </a>
       </div>
     </div>
-    <!-- <button class="flex mx-auto mt-20 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button> -->
   </div>
 </section>

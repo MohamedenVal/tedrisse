@@ -9,7 +9,7 @@ import { CourseService } from 'src/app/services/course.service';
   styleUrls: ['./courses-list.component.css']
 })
 export class CoursesListComponent implements OnInit {
-  courses: Course[] = [];
+  courses!: Course[];
 
   constructor(private coursesService: CourseService, private title: Title) { }
 

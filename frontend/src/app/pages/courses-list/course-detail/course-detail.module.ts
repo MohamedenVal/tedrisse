@@ -5,6 +5,7 @@ import { CourseDetailRoutingModule } from './course-detail-routing.module';
 import { CourseDetailComponent } from './course-detail.component';
 import { LessonComponent } from './lesson/lesson.component';
 import { LessonSidebarComponent } from './lesson-sidebar/lesson-sidebar.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { LessonSidebarComponent } from './lesson-sidebar/lesson-sidebar.componen
   ],
   imports: [
     CommonModule,
-    CourseDetailRoutingModule
+    CourseDetailRoutingModule,
+    SharedModule
   ]
 })
 export class CourseDetailModule { }
