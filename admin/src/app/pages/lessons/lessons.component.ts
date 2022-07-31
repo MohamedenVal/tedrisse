@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Lesson } from 'src/app/models/lesson.model';
+import { CourseService } from 'src/app/services/course.service';
 import { LessonsService } from 'src/app/services/lessons.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class LessonsComponent implements OnInit {
   lessons: Lesson[]= [];
   deleting = false;
 
-  constructor(private lessonsService: LessonsService) { }
+  constructor(private lessonsService: LessonsService, private courseService: CourseService) { }
 
   ngOnInit(): void {
     this.getLessons()
@@ -21,6 +22,7 @@ export class LessonsComponent implements OnInit {
     this.lessonsService.getLessons()
       .subscribe((res) => {
         this.lessons = res.data
+        // this.getCourse('')
         this.deleting = false
       })
   }
@@ -32,6 +34,10 @@ export class LessonsComponent implements OnInit {
       .subscribe(() => {
         this.getLessons()
       })
+  }
+
+  getCourse(id: string) {
+    return this.courseService.getCourse(id)
   }
 
 }
