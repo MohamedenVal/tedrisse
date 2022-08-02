@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { Course } from 'src/app/models/course.model';
 import { Post } from 'src/app/models/post.model';
 import { CourseService } from 'src/app/services/course.service';
+import { LocalApiService } from 'src/app/services/local-api.service';
 import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private postsService: PostsService,
+    private localApi: LocalApiService,
     private coursesService: CourseService,
     private title: Title
   ) { }
@@ -29,6 +31,7 @@ export class HomeComponent implements OnInit {
   getPosts() {
     this.postsService.getPosts()
       .subscribe((res) => {
+        this.localApi.setResource('posts', res)
         this.posts = this.limitElements(6, res.data);
 
       })
@@ -37,7 +40,13 @@ export class HomeComponent implements OnInit {
   getCourses() {
     this.coursesService.getCourses()
       .subscribe((res) => {
+        console.log(JSON.stringify(res.data));
+        this.localApi.setResource('courses', res);
         this.courses = this.limitElements(3, res.data);
+      }, () => {
+        this.courses = this.limitElements(3,
+          this.localApi.getResource('courses').data
+        );
       })
   }
 

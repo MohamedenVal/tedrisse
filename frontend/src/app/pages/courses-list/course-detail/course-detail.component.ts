@@ -23,6 +23,7 @@ export class CourseDetailComponent implements OnInit {
   getSelectedCourse() {
     let id = '';
 
+    // limiting api calls
     this.route.params.subscribe((param) => {
       if(param['id']){
         id = param['id'];

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Course } from 'src/app/models/course.model';
-import { CourseService } from 'src/app/services/course.service';
+import { LocalApiService } from 'src/app/services/local-api.service';
 
 @Component({
   selector: 'app-courses-list',
@@ -11,7 +11,7 @@ import { CourseService } from 'src/app/services/course.service';
 export class CoursesListComponent implements OnInit {
   courses!: Course[];
 
-  constructor(private coursesService: CourseService, private title: Title) { }
+  constructor(private title: Title, private localApi: LocalApiService) { }
 
   ngOnInit(): void {
     this.getCourses()
@@ -19,10 +19,7 @@ export class CoursesListComponent implements OnInit {
   }
 
   getCourses() {
-    this.coursesService.getCourses()
-      .subscribe((res) => {
-        this.courses = res.data
-      })
+    this.courses = this.localApi.getResource('courses').data;
   }
 
 }

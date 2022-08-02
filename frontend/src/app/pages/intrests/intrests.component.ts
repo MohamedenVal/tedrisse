@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Category } from 'src/app/models/category.model';
 import { Post } from 'src/app/models/post.model';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { LocalApiService } from 'src/app/services/local-api.service';
 import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class IntrestsComponent implements OnInit {
 
   constructor(
     private categoriesService: CategoriesService,
-    private postsService: PostsService,
+    private localApi: LocalApiService,
     private route: ActivatedRoute,
     private title: Title,
   ) { }
@@ -48,18 +49,25 @@ export class IntrestsComponent implements OnInit {
   getCategories() {
     this.categoriesService.getCategories()
       .subscribe((res) => {
+        this.localApi.setResource('categories', res)
         this.categories = res.data;
         this.title.setTitle(`مواضيع مهمة في البرمجة والعلوم الحديثة - إهتمامات | تدريس`)
+      }, () => {
+        this.categories = this.localApi.getResource('categories')?.data
       })
   }
 
   getPosts() {
-    this.postsService.getPosts()
-      .subscribe((res) => {
-        this.posts = res.data
-      })
+    const localData = this.localApi.getResource('posts');
+    this.posts = localData?.data
   }
 
+  /**
+   *
+   * This function is for the single category page
+   * It can be optimised using a filter method and , but I am lazy for now
+   *
+   */
   getCat(id: string) {
     this.categoriesService.getCategory(id)
       .subscribe((res) => {
