@@ -4,12 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "~quill/dist/quill.snow.css";
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
+    direction: rtl;
     font-family: 'Nunito', sans-serif;
     @apply
       bg-primary-white dark:bg-primary-black

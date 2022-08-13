@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Example } from 'src/app/models/example.model';
 import { Lesson } from 'src/app/models/lesson.model';
 import { CourseService } from 'src/app/services/course.service';
 import { LessonsService } from 'src/app/services/lessons.service';
@@ -13,6 +15,7 @@ import { LessonsService } from 'src/app/services/lessons.service';
 export class LessonComponent implements OnInit {
   lesson!: Lesson;
   courseLessons!: Lesson[];
+  examples!: Observable<Example[]>;
 
   constructor(
     private lessonsService: LessonsService,
@@ -26,6 +29,7 @@ export class LessonComponent implements OnInit {
       if(param['id']){
         let id = param['id']
         this.getlesson(id)
+        this.getExamples(id)
       }
     })
   }
@@ -39,13 +43,15 @@ export class LessonComponent implements OnInit {
       })
   }
 
+  getExamples(id: string) {
+    this.examples = this.lessonsService.getLessonExamples(id);
+  }
+
   getCourseLessons() {
     this.courseService.getCourseLessons(this.lesson.course!)
       .subscribe((res) => {
         this.courseLessons = res
       })
   }
-
-
 
 }

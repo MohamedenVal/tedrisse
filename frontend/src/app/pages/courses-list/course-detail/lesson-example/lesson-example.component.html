@@ -1,0 +1,7 @@
+<div class="p-1 lg:p-4" *ngFor="let example of examples" [id]="example.id">
+  <h4 dir="rtl" class="text-l mb-2">
+    {{ example.title }}
+  </h4>
+  <div class="border-indigo-500 border-l-4 bg-white p-2 lg:p-4" [innerHTML]="example.content">
+  </div>
+</div>

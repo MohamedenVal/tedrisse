@@ -6,6 +6,7 @@ import { CourseDetailComponent } from './course-detail.component';
 import { LessonComponent } from './lesson/lesson.component';
 import { LessonSidebarComponent } from './lesson-sidebar/lesson-sidebar.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { LessonExampleComponent } from './lesson-example/lesson-example.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CourseDetailComponent,
     LessonComponent,
     LessonSidebarComponent,
+    LessonExampleComponent,
   ],
   imports: [
     CommonModule,

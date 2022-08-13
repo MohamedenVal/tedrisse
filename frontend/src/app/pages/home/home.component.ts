@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
     this.postsService.getPosts()
       .subscribe((res) => {
         this.localApi.setResource('posts', res)
-        this.posts = this.limitElements(6, res.data);
+        this.posts = this.limitElements(12, res.data);
 
       })
   }
@@ -40,11 +40,10 @@ export class HomeComponent implements OnInit {
   getCourses() {
     this.coursesService.getCourses()
       .subscribe((res) => {
-        console.log(JSON.stringify(res.data));
         this.localApi.setResource('courses', res);
-        this.courses = this.limitElements(3, res.data);
+        this.courses = this.limitElements(6, res.data);
       }, () => {
-        this.courses = this.limitElements(3,
+        this.courses = this.limitElements(6,
           this.localApi.getResource('courses').data
         );
       })
@@ -63,10 +62,20 @@ export class HomeComponent implements OnInit {
     })
 
     if (newElems) {
-      return newElems
+      return newElems.sort(this.compareId)
     } else {
       return elems;
     }
+  }
+
+  private compareId(a: Post | Course, b: Post | Course) {
+    if (a.id < b.id) {
+      return -1;
+    }
+    if (a.id > b.id) {
+      return 1;
+    }
+    return 0;
   }
 
 }
