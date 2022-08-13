@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, retry, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Example } from '../models/example.model';
 import { Lesson } from '../models/lesson.model';
 import { PaginatedLesson } from '../models/paginated-lesson.model';
 
@@ -25,6 +26,10 @@ export class LessonsService {
         retry(3), // retry failed request up to 3 times
         catchError(this.handleError)
       )
+  }
+
+  getLessonExamples(lessonId: string) {
+    return this.http.get<Example[]>(`${this.lessonApi}/${lessonId}/examples`)
   }
 
   createLesson(lessonFormData: FormData): Observable<Lesson> {

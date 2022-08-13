@@ -4,7 +4,15 @@
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">إضافة درس</h1>
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base">إضافة  درس الى دورة تدريبية </p>
     </div>
-    <div class="container px-5 mx-auto">
+    <div class="flex justify-between  w-full mb-10">
+      <button routerLink="form" class="ml-5 inline-flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+        درس جديد
+      </button>
+      <button routerLink="example" class="ml-5 inline-flex mx-auto text-white bg-gray-500 border-0 py-2 px-3 focus:outline-none hover:bg-gray-600 rounded text-lg">
+        إضافة مثال
+      </button>
+    </div>
+    <div class="container px-5 mx-auto mb-3">
       <form [formGroup]="form" class="block -m-2">
         <div class="p-2 w-1/2">
           <div class="relative">
@@ -43,6 +51,19 @@
           </button>
         </div>
       </form>
+    </div>
+    <div class="flex flex-col md:flex-row flex-wrap text-center w-full mb-12 gap-2">
+      <div *ngFor="let example of examples | async" class="w-1/3 md:1/5 bg-gray-300 rounded-md">
+        <h4 class="sm:text-3xl text-lg font-medium title-font mb-4 text-gray-900">
+          {{ example.title }}
+        </h4>
+        <button [routerLink]="['example', example.id]" class="mx-3 inline-flex text-white bg-indigo-500 border-0 py-2 px-2 focus:outline-none hover:bg-indigo-600 rounded text-sm">
+          تعديل
+        </button>
+        <button routerLink="form" class="ml-2 inline-flex text-white bg-red-500 border-0 py-2 px-2 focus:outline-none hover:bg-red-600 rounded text-sm">
+          حذف
+        </button>
+      </div>
     </div>
   </div>
 </section>

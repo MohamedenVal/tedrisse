@@ -2,7 +2,8 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { timer } from 'rxjs';
+import { Observable, timer } from 'rxjs';
+import { Example } from 'src/app/models/example.model';
 import { PaginatedCourse } from 'src/app/models/paginated-course.model';
 import { CourseService } from 'src/app/services/course.service';
 import { LessonsService } from 'src/app/services/lessons.service';
@@ -19,6 +20,7 @@ export class LessonFormComponent implements OnInit {
   lessonId = '';
   courses!: PaginatedCourse;
   selectedCourse: string | undefined;
+  examples!: Observable<Example[]>;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -61,6 +63,9 @@ export class LessonFormComponent implements OnInit {
         this.courses = res
       })
   }
+  private getExamples(id: string) {
+    this.examples = this.lessonsService.getLessonExamples(id)
+  }
 
   private initForm() {
     this.form = this.formBuilder.group({
@@ -77,6 +82,7 @@ export class LessonFormComponent implements OnInit {
       if (params['id']) {
         this.editMode = true;
         this.lessonId = params['id'];
+        this.getExamples(this.lessonId);
 
         this.lessonsService.getLesson(this.lessonId)
           .subscribe((res) => {

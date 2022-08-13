@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080/tedrisse/backend/public/api/'
+  apiUrl: 'http://localhost:8080/backend-ted/public/api/'
   // apiUrl: 'https://tedrisse.herokuapp.com/api/',
 };
 

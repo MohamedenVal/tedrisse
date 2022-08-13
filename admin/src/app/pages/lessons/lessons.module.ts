@@ -7,6 +7,8 @@ import { LessonFormComponent } from './lesson-form/lesson-form.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuillModule, QuillModules } from 'ngx-quill';
+import { ExampleFormComponent } from './example-form/example-form.component';
+import { ExamplesComponent } from './examples/examples.component';
 
 const modules: QuillModules = {
   toolbar: {
@@ -31,6 +33,8 @@ const modules: QuillModules = {
   declarations: [
     LessonsComponent,
     LessonFormComponent,
+    ExampleFormComponent,
+    ExamplesComponent,
   ],
   imports: [
     CommonModule,
