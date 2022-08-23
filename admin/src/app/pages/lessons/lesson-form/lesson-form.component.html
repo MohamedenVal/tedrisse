@@ -42,7 +42,7 @@
         <div class="p-2 w-full">
           <div class="relative h-64">
             <label for="content" class="leading-7 text-sm text-gray-600">محتوى الدرس</label>
-            <quill-editor formControlName="content" dir="ltr"></quill-editor>
+            <quill-editor [modules]="modules" formControlName="content" dir="ltr"></quill-editor>
           </div>
         </div>
         <div class="p-2 w-full mt-64 md:mt-32">

@@ -6,6 +6,13 @@ import { Example } from '../models/example.model';
 import { Lesson } from '../models/lesson.model';
 import { PaginatedLesson } from '../models/paginated-lesson.model';
 
+export interface Path {
+  success: string,
+  file: {
+    url: string
+  }
+
+}
 export interface LessonData {
   data: Lesson;
 }
@@ -49,6 +56,20 @@ export class LessonsService {
       .pipe(
         catchError(this.handleError)
       )
+  }
+
+  uploadImages(uploadData: FormData) {
+    return this.http.post<Path>(`${this.lessonApi}/upload`, uploadData);
+    // return this.http.post<Path>(`http://localhost:8080/backend-ted/public/api/posts/upload`, uploadData)
+    // .toPromise()
+      // .then(result => {
+      //     resolve(result.message.url); // RETURN IMAGE URL from response
+      // })
+      // .catch(error => {
+      //   reject('Upload failed');
+      //   // Handle error control
+      //   console.error('Error:', error);
+      // });
   }
 
   deleteLesson(id: string) {

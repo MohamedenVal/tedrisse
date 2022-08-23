@@ -7,7 +7,11 @@ import { Example } from 'src/app/models/example.model';
 import { PaginatedCourse } from 'src/app/models/paginated-course.model';
 import { CourseService } from 'src/app/services/course.service';
 import { LessonsService } from 'src/app/services/lessons.service';
+import Quill from 'quill';
+import { VideoHandler, ImageHandler, Options } from 'ngx-quill-upload';
 
+Quill.register('modules/imageHandler', ImageHandler);
+Quill.register('modules/videoHandler', VideoHandler);
 @Component({
   selector: 'app-lesson-form',
   templateUrl: './lesson-form.component.html',
@@ -21,6 +25,64 @@ export class LessonFormComponent implements OnInit {
   courses!: PaginatedCourse;
   selectedCourse: string | undefined;
   examples!: Observable<Example[]>;
+
+  modules = {
+    toolbar: [
+      ['bold', 'italic', 'underline', 'strike'],
+      [{ 'header': 1 }, { 'header': 2 }],
+      [{ 'indent': '-1'}, { 'indent': '+1' }],
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      [{ 'script': 'sub'}, { 'script': 'super' }],
+      ['blockquote', 'code-block'],
+      [{ 'direction': 'rtl' }],
+      [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+      [{ 'font': [] }],
+      [{ 'align': [] }],
+
+      ['clean'],                                         // remove formatting button
+
+      ['link', 'image', 'video'],
+    ],
+    imageHandler: {
+      upload: (file: any) => {
+       return new Promise((resolve, reject) => {
+
+        if (file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'image/jpg') { // File types supported for image
+          if (file.size < 1000000) { // Customize file size as per requirement
+
+          // Sample API Call
+            const uploadData = new FormData();
+            uploadData.append('image', file, file.name);
+
+            this.lessonsService.uploadImages(uploadData)
+              .subscribe((result) => {
+                resolve(result?.file.url);
+              }, (err) => {
+                console.log(err);
+
+              })
+          } else {
+            reject('Size too large');
+           // Handle Image size large logic
+          }
+        } else {
+          reject('Unsupported type');
+         // Handle Unsupported type logic
+        }
+      });
+      },
+      accepts: ['png', 'jpg', 'jpeg', 'jfif'] // Extensions to allow for images (Optional) | Default - ['jpg', 'jpeg', 'png']
+    } as Options,
+    videoHandler: {
+      upload: (file: any) => {
+        return // your uploaded video URL as Promise<string>
+      },
+      accepts: ['mpeg', 'avi']  // Extensions to allow for videos (Optional) | Default - ['mp4', 'webm']
+    } as Options
+  };
 
   constructor(
     private formBuilder: FormBuilder,
